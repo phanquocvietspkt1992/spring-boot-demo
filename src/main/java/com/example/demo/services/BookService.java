@@ -1,18 +1,19 @@
 package com.example.demo.services;
 
-import com.example.demo.domain.entities.BookEntity;
+import com.example.demo.domain.entities.Book;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface BookService {
-    BookEntity save(BookEntity book);
+    Book save(Book book);
 
-    List<BookEntity> findAll();
+    List<Book> findAll();
 
-    Optional<BookEntity> findOne(Long id);
+    Optional<Book> findOne(Long id);
 
     boolean isExists(Long id);
+    void delete(Long id);
 
-    BookEntity partialUpdate(Long id, BookEntity bookEntity);
+    Book partialUpdate(Book book);
 }

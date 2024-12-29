@@ -1,7 +1,6 @@
 package com.example.demo.repositories;
-import com.example.demo.domain.entities.AuthorEntity;
+import com.example.demo.domain.entities.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.example.demo.domain.entities.BookEntity;
 
-public interface AuthorRepository  extends JpaRepository<AuthorEntity, Long> {
+public interface AuthorRepository  extends JpaRepository<Author, Long> {
 }

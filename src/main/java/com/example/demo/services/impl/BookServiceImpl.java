@@ -1,10 +1,8 @@
 package com.example.demo.services.impl;
 
-import com.example.demo.domain.entities.AuthorEntity;
-import com.example.demo.domain.entities.BookEntity;
+import com.example.demo.domain.entities.Book;
 import com.example.demo.repositories.AuthorRepository;
 import com.example.demo.repositories.BookRepository;
-import com.example.demo.services.AuthorService;
 import com.example.demo.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,17 +20,17 @@ public class BookServiceImpl implements BookService {
 
 
     @Override
-    public BookEntity save(BookEntity book) {
+    public Book save(Book book) {
         return bookRepository.save(book);
     }
 
     @Override
-    public List<BookEntity> findAll() {
+    public List<Book> findAll() {
         return List.of();
     }
 
     @Override
-    public Optional<BookEntity> findOne(Long id) {
+    public Optional<Book> findOne(Long id) {
         return bookRepository.findById(id);
     }
 
@@ -42,7 +40,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public BookEntity partialUpdate(Long id, BookEntity bookEntity) {
+    public void delete(Long id) {
+        authorRepository.deleteById(id);
+    }
+
+    @Override
+    public Book partialUpdate(Book book) {
         return null;
     }
 }

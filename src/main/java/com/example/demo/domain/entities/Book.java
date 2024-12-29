@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name="books")
-public class BookEntity {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -19,5 +19,5 @@ public class BookEntity {
     private String title;
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    private AuthorEntity authorEntity;
+    private Author author;
 }

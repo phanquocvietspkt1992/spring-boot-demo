@@ -1,6 +1,6 @@
 package com.example.demo.services.impl;
 
-import com.example.demo.domain.entities.AuthorEntity;
+import com.example.demo.domain.entities.Author;
 import com.example.demo.repositories.AuthorRepository;
 import com.example.demo.services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +16,18 @@ public class AuthorServiceImpl implements AuthorService {
     private AuthorRepository authorRepository;
 
     @Override
-    public AuthorEntity save(AuthorEntity authorEntity) {
-        return authorRepository.save(authorEntity);
+    public Author save(Author author) {
+        return authorRepository.save(author);
 
     }
 
     @Override
-    public List<AuthorEntity> findAll() {
+    public List<Author> findAll() {
        return authorRepository.findAll();
     }
 
     @Override
-    public Optional<AuthorEntity> findOne(Long id) {
+    public Optional<Author> findOne(Long id) {
         return authorRepository.findById(id);
     }
 
@@ -37,13 +37,13 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public AuthorEntity partialUpdate(Long id, AuthorEntity authorEntity) {
+    public Author partialUpdate(Long id, Author authorEntity) {
         // Fetch the user by ID
-        Optional<AuthorEntity> optionalUser = authorRepository.findById(id);
+        Optional<Author> optionalUser = authorRepository.findById(id);
 
         if (optionalUser.isPresent()) {
             // Get the existing user
-            AuthorEntity author = optionalUser.get();
+            Author author = optionalUser.get();
 
             // Update the fields
             author.setName(authorEntity.getName());

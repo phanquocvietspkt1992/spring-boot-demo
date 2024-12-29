@@ -1,20 +1,20 @@
 package com.example.demo.services;
 
-import com.example.demo.domain.entities.AuthorEntity;
+import com.example.demo.domain.entities.Author;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface AuthorService {
-    AuthorEntity save(AuthorEntity authorEntity);
+    Author save(Author author);
 
-    List<AuthorEntity> findAll();
+    List<Author> findAll();
 
-    Optional<AuthorEntity> findOne(Long id);
+    Optional<Author> findOne(Long id);
 
     boolean isExists(Long id);
 
-    AuthorEntity partialUpdate(Long id, AuthorEntity authorEntity);
+    Author partialUpdate(Long id, Author author);
 
     void delete(Long id);
 }
