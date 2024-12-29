@@ -92,4 +92,9 @@ public class AuthorController {
         return authorService.findAuthorsByAgeGreaterThan(age);
     }
 
+    @GetMapping("/search/by-name")
+    public List<Author> getAuthorsByName(@RequestParam String name) {
+        return authorService.findAuthorsByName(name);
+    }
+
 }

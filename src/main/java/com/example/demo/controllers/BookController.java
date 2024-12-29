@@ -22,7 +22,6 @@ public class BookController {
         Book bookEntity = bookMapper.mapFrom(bookDto);
         Book savedBookEntity = bookService.save(bookEntity);
         return new ResponseEntity<>(bookMapper.mapTo(savedBookEntity), HttpStatus.CREATED);
-
     }
 
 }

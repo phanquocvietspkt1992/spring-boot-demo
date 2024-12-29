@@ -18,4 +18,5 @@ public interface AuthorService {
 
     void delete(Long id);
     List<Author> findAuthorsByAgeGreaterThan(int age);
+    List<Author> findAuthorsByName(String name);
 }

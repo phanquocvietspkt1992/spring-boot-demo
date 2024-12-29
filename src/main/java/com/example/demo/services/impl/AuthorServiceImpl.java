@@ -66,4 +66,9 @@ public class AuthorServiceImpl implements AuthorService {
     public List<Author> findAuthorsByAgeGreaterThan(int age) {
         return authorRepository.findAuthorsByAgeGreaterThan(age);
     }
+
+    @Override
+    public List<Author> findAuthorsByName(String name) {
+        return authorRepository.findAuthorsByName(name);
+    }
 }
