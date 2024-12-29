@@ -61,4 +61,9 @@ public class AuthorServiceImpl implements AuthorService {
     public void delete(Long id) {
     authorRepository.deleteById(id);
     }
+
+    @Override
+    public List<Author> findAuthorsByAgeGreaterThan(int age) {
+        return authorRepository.findAuthorsByAgeGreaterThan(age);
+    }
 }

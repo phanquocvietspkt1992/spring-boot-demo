@@ -17,4 +17,5 @@ public interface AuthorService {
     Author partialUpdate(Long id, Author author);
 
     void delete(Long id);
+    List<Author> findAuthorsByAgeGreaterThan(int age);
 }

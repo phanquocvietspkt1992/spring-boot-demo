@@ -87,4 +87,9 @@ public class AuthorController {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping("/search/older-than")
+    public List<Author> getAuthorsOlderThan(@RequestParam int age) {
+        return authorService.findAuthorsByAgeGreaterThan(age);
+    }
+
 }
