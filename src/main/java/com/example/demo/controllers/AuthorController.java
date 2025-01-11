@@ -26,16 +26,16 @@ public class AuthorController {
 
     @PostMapping(path = "/authors")
     public ResponseEntity<AuthorDto> createAuthor(@RequestBody AuthorDto author) {
-        Author authorEntity = authorMapper.mapFrom(author);
+        Author authorEntity = authorMapper.mapToEntity(author);
         Author savedAuthor = authorService.save(authorEntity);
-        return new ResponseEntity<>(authorMapper.mapTo(savedAuthor), HttpStatus.CREATED);
+        return new ResponseEntity<>(authorMapper.mapToDTO(savedAuthor), HttpStatus.CREATED);
     }
 
     @GetMapping(path = "/authors")
     public List<AuthorDto> listAuthors() {
         List<Author> authors = authorService.findAll();
         return authors.stream()
-                .map(authorMapper::mapTo)
+                .map(authorMapper::mapToDTO)
                 .collect(Collectors.toList());
     }
 
@@ -43,7 +43,7 @@ public class AuthorController {
     public ResponseEntity<AuthorDto> getAuthor(@PathVariable("id") Long id) {
         Optional<Author> foundAuthor = authorService.findOne(id);
         return foundAuthor.map(authorEntity -> {
-            AuthorDto authorDto = authorMapper.mapTo(authorEntity);
+            AuthorDto authorDto = authorMapper.mapToDTO(authorEntity);
             return new ResponseEntity<>(authorDto, HttpStatus.OK);
         }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -58,10 +58,10 @@ public class AuthorController {
         }
 
         authorDto.setId(id);
-        Author author = authorMapper.mapFrom(authorDto);
+        Author author = authorMapper.mapToEntity(authorDto);
         Author savedAuthor = authorService.save(author);
         return new ResponseEntity<>(
-                authorMapper.mapTo(savedAuthor),
+                authorMapper.mapToDTO(savedAuthor),
                 HttpStatus.OK);
     }
 
@@ -74,10 +74,10 @@ public class AuthorController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        Author author = authorMapper.mapFrom(authorDto);
+        Author author = authorMapper.mapToEntity(authorDto);
         Author updatedAuthor = authorService.partialUpdate(id, author);
         return new ResponseEntity<>(
-                authorMapper.mapTo(updatedAuthor),
+                authorMapper.mapToDTO(updatedAuthor),
                 HttpStatus.OK);
     }
 

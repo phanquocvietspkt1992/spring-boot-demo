@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "id")
     private Long id;
     private String title;
     @ManyToOne
-    @JoinColumn(name = "author_id", nullable = false)
+    @JoinColumn(name = "authorId", nullable = false)
     private Author author;
 }

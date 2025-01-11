@@ -12,10 +12,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class BookDto {
 
-    private String isbn;
-
+private Long id;
     private String title;
 
-    private AuthorDto author;
+    private Long author_Id;
 
 }

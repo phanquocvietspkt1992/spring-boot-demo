@@ -2,8 +2,8 @@ package com.example.demo.mappers;
 
 public interface Mapper<A,B> {
 
-    B mapTo(A a);
+    B mapToDTO(A a);
 
-    A mapFrom(B b);
+    A mapToEntity(B b);
 
 }
