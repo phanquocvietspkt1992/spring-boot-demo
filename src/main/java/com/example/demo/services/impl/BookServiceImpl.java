@@ -26,7 +26,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> findAll() {
-        return List.of();
+        return bookRepository.findAll();
     }
 
     @Override
@@ -36,12 +36,12 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public boolean isExists(Long id) {
-        return authorRepository.existsById(id);
+        return bookRepository.existsById(id);
     }
 
     @Override
     public void delete(Long id) {
-        authorRepository.deleteById(id);
+        bookRepository.deleteById(id);
     }
 
     @Override
